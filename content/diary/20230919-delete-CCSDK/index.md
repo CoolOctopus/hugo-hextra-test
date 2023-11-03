@@ -5,6 +5,7 @@ draft: false
 description: "CCSDK存在一个本地权限提升漏洞，官方建议尽早删除"
 categories: ["日常"]
 tags: ["CCSDK","bug","权限提升漏洞","联想"]
+type: "diary"
 ---
 
 > 这是一篇日记，关于我的老古董笔记本，内容可能比较过时。

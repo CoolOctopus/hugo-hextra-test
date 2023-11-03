@@ -1,0 +1,31 @@
+{{ $limit := default 999 }}
+{{ $title := "最近文章" }}
+{{ $parent := .Page.RelPermalink }}
+{{ $where := "type" }}
+{{ $value := .Params.Type }}
+{{ $rows := default "3" }}
+
+<div>{{ $limit }},{{ $title }},{{ $parent }},{{ $value }},</div>
+
+{{ if $title }}
+    <h2 class="mt-20 text-2xl font-extrabold mb-10">{{ $title }}</h2>
+{{ end }}
+
+<div class="hextra-cards mt-4 gap-4 grid not-prose" style="--rows: {{ $rows }};">
+    {{ if $where }}
+        {{ range ( where .Site.RegularPages $where $value | first $limit ) }}
+                {{ partial "article-card.html" . }}
+
+            {{ if not (eq .RelPermalink $parent) }}
+                {{ partial "article-card.html" . }}
+            {{ end }}
+        {{end}}
+    {{ else }}
+        {{ range .Site.RegularPages | first $limit }}
+            {{ if not (eq .RelPermalink $parent) }}
+                {{ partial "article-card.html" . }}
+            {{ end }}
+        {{end}}
+    {{ end }}
+
+</div>

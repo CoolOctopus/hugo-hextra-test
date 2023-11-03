@@ -1,0 +1,28 @@
+{{ $limit := .Get "limit" | default 1 }}
+{{ $title := .Get "title" }}
+{{ $parent := .Page.RelPermalink }}
+{{ $where := .Get "where" }}
+{{ $value := .Get "value" }}
+{{ $rows := .Get "rows" | default "3" }}
+
+{{ if $title }}
+    <h2 class="mt-20 text-2xl font-extrabold mb-10">{{ $title }}</h2>
+{{ end }}
+
+<div class="hextra-cards mt-4 gap-4 grid not-prose" style="--rows: {{ $rows }};">
+    {{ if $where }}
+        {{ range ( where .Site.RegularPages $where $value | first $limit ) }}
+
+            {{ if not (eq .RelPermalink $parent) }}
+                {{ partial "article-card.html" . }}
+            {{ end }}
+        {{end}}
+    {{ else }}
+        {{ range .Site.RegularPages | first $limit }}
+            {{ if not (eq .RelPermalink $parent) }}
+                {{ partial "article-card.html" . }}
+            {{ end }}
+        {{end}}
+    {{ end }}
+
+</div>

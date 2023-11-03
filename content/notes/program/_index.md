@@ -1,7 +1,10 @@
 ---
+linkTitle: "编程"
 title: "编程笔记"
 description: "Java | Pyton | Html | Css"
 
+# prev: /
+# next: /notes/design
 cascade:
   showEdit: false
   showSummary: false
@@ -11,3 +14,7 @@ cascade:
 Java | Pyton | Html | Css ...，程序知识博大精深，聚各方技术为一炉，采长补短，终有所成。
 
 ---
+
+
+{{< list title="" limit=5 where="Type" value="program"  >}}
+

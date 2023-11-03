@@ -15,16 +15,16 @@ outputs:
   page: [HTML]
   section: [HTML, RSS]
 
-defaultContentLanguage: en
+defaultContentLanguage: zh-CN
 languages:
-  en:
-    languageName: English
-    weight: 1
-    title: Hextra
-  ja:
-    languageName: 日本語
-    weight: 2
-    title: "Hextra テーマ"
+  # en:
+  #   languageName: English
+  #   weight: 1
+  #   title: XXNote
+  # ja:
+  #   languageName: 日本語
+  #   weight: 2
+  #   title: "XXNote"
   zh-cn:
     languageName: 简体中文
     languageCode: zh-CN
@@ -63,19 +63,21 @@ menu:
       name: 日常
       pageRef: /diary
       weight: 3
-    - identifier: about
-      name: About
-      pageRef: /about
+    - identifier: haoyangmao
+      name: 薅羊毛
+      pageRef: /haoyangmao
       weight: 4
+      params: 
+        icon: haoyangmao
     - name: Search
       weight: 5
       params:
         type: search
-    - name: GitHub
+    - name: 赞助
       weight: 6
-      url: "https://github.com/cooloctopus"
+      pageRef: /sponsor
       params:
-        icon: github
+        icon: sponsor
 
   sidebar:
     - identifier: more
@@ -101,22 +103,22 @@ params:
     logo:
       path: images/logo.png
       dark: images/logo.png
-      # width: 40
-      # height: 20
+      width: 40
+      height: 40
       # link: /
     width: wide
 
   page:
     # full (100%), wide (90rem), normal (1280px)
-    width: normal
+    width: wide
 
   footer:
     displayCopyright: true
     displayPoweredBy: true
-    width: normal
+    width: wide
 
   displayUpdatedDate: true
-  dateFormat: "January 2, 2006"
+  dateFormat: "2006-01-02"
 
   search:
     enable: true
@@ -141,3 +143,16 @@ params:
       # emitMetadata: 0
       # inputPosition: top
       # lang: en
+
+  sitemap:
+    excludedKinds: ["taxonomy", "term"]
+
+  taxonomy:
+    showTermCount: true
+    showHero: false
+    # heroStyle: "background" # valid options: basic, big, background, thumbAndBackground
+    showBreadcrumbs: false
+    showViews: false
+    showLikes: false
+    showTableOfContents: false
+    cardView: false
